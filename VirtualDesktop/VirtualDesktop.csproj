@@ -50,6 +50,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Controls\ClusterConfigurationControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Controls\MasterSlaveToggleButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -62,9 +66,15 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Controls\ClusterConfigurationControl.xaml.cs">
+      <DependentUpon>ClusterConfigurationControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\MasterSlaveToggleButton.cs" />
+    <Compile Include="DomainModel\AudioConfiguration.cs" />
+    <Compile Include="DomainModel\Monitor.cs" />
+    <Compile Include="DomainModel\VirtualDesktopConfiguration.cs" />
     <Compile Include="MainWindowConfiguration.cs" />
-    <Compile Include="DomainModel\MasterConfiguration.cs" />
+    <Compile Include="DomainModel\ClusterConfiguration.cs" />
     <Compile Include="DomainModel\SlaveConfiguration.cs" />
     <Compile Include="DomainModel\WindowConfiguration.cs" />
     <Compile Include="MainWindow.xaml.cs">
