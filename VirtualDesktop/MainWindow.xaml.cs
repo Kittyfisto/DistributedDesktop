@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Net;
@@ -33,10 +32,14 @@ namespace VirtualDesktop
 
 			var deviceEnumerator = new MMDeviceEnumerator();
 			var devices = deviceEnumerator.EnumerateAudioEndPoints(DataFlow.All, DeviceState.Active).ToList();
-			var device = devices.First(x => x.FriendlyName.Contains("Mikrofon (Realtek"));
-			_capture = new WasapiCapture(device) { ShareMode = AudioClientShareMode.Shared };
-			_format = device.AudioClient.MixFormat;
-			_capture.WaveFormat = _format;
+			//var recordDevice = devices.First(x => x.FriendlyName.Contains("Mikrofon (Realtek"));
+			var recordDevice = devices.First(x => x.FriendlyName.Contains("Lautsprecher (Realtek"));
+			//_capture = new WasapiCapture(recordDevice);
+			_capture = new WasapiLoopbackCapture(recordDevice);
+			_format = recordDevice.AudioClient.MixFormat;
+			//_capture.WaveFormat = _format;
+			_capture.ShareMode = AudioClientShareMode.Shared;
+			_capture.DataAvailable += CaptureOnDataAvailable;
 
 			_timer = new DispatcherTimer();
 			_timer.Interval = TimeSpan.FromMilliseconds(100);
@@ -51,6 +54,20 @@ namespace VirtualDesktop
 			_client.BeginConnect(IPAddress.Loopback, 54321, OnClientConnected, null);
 
 			_sw = new Stopwatch();
+
+			Closed += OnClosed;
+		}
+
+		private void OnClosed(object sender, EventArgs eventArgs)
+		{
+			_capture.StopRecording();
+			_capture.Dispose();
+
+			_playbackDevice.Stop();
+			_playbackDevice.Dispose();
+
+			_client.Close();
+			_serverToClient.Close();
 		}
 
 		private void OnServerConnected(IAsyncResult ar)
@@ -62,13 +79,12 @@ namespace VirtualDesktop
 
 			var deviceEnumerator = new MMDeviceEnumerator();
 			var devices = deviceEnumerator.EnumerateAudioEndPoints(DataFlow.All, DeviceState.Active).ToList();
-			var device = devices.First(x => x.FriendlyName.Contains("Lautsprecher"));
-			_playbackDevice = new WasapiOut(device, AudioClientShareMode.Shared, true, 0);
+			var playbackDevice = devices.First(x => x.FriendlyName.Contains("Lautsprecher"));
+			_playbackDevice = new WasapiOut(playbackDevice, AudioClientShareMode.Shared, true, 0);
 
 			_playbackDevice.Init(_waveInProvider);
 			_playbackDevice.Play();
 
-			_capture.DataAvailable += CaptureOnDataAvailable;
 			_capture.StartRecording();
 		}
 
