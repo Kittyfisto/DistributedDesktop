@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Runtime.Serialization;
 
-namespace VirtualDesktop.DomainModel
+namespace DistributedDesktop.DomainModel
 {
 	/// <summary>
 	///     Describes a monitor within a cluster of computers, it's virtual position, size, etc..

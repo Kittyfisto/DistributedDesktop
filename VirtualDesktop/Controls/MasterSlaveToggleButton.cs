@@ -1,7 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 
-namespace VirtualDesktop.Controls
+namespace DistributedDesktop.Controls
 {
 	public class MasterSlaveToggleButton : Control
 	{

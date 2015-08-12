@@ -1,7 +1,7 @@
 ﻿using System.Runtime.Serialization;
 using System.Windows;
 
-namespace VirtualDesktop.DomainModel
+namespace DistributedDesktop.DomainModel
 {
 	/// <summary>
 	///     Represents the configuration of a window.

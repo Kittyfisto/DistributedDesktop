@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualDesktop.AudioPrototype", "VirtualDesktop.AudioPrototype\VirtualDesktop.AudioPrototype.csproj", "{C1BCEE41-12AA-45A4-987F-AE0FB9C15740}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedDesktop.AudioPrototype", "VirtualDesktop.AudioPrototype\DistributedDesktop.AudioPrototype.csproj", "{C1BCEE41-12AA-45A4-987F-AE0FB9C15740}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VirtualDesktop", "VirtualDesktop\VirtualDesktop.csproj", "{FC5DC063-2D42-4F59-B475-228B0CC1D480}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DistributedDesktop", "VirtualDesktop\DistributedDesktop.csproj", "{FC5DC063-2D42-4F59-B475-228B0CC1D480}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{3BC45A5B-0FB5-47A2-B186-58DAD9DEDA92}"
 	ProjectSection(SolutionItems) = preProject

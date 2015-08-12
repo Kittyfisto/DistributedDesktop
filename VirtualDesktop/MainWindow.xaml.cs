@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
-using VirtualDesktop.DomainModel;
+using DistributedDesktop.DomainModel;
 
-namespace VirtualDesktop
+namespace DistributedDesktop
 {
 	public partial class MainWindow
 	{

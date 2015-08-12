@@ -7,8 +7,8 @@
     <ProjectGuid>{FC5DC063-2D42-4F59-B475-228B0CC1D480}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>VirtualDesktop</RootNamespace>
-    <AssemblyName>VirtualDesktop</AssemblyName>
+    <RootNamespace>DistributedDesktop</RootNamespace>
+    <AssemblyName>DistributedDesktop</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,11 +50,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Windows\IVirtualWindow.cs" />
+    <Compile Include="Controls\Windows\VirtualApplicationWindow.xaml.cs">
+      <DependentUpon>VirtualApplicationWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DomainModel\LocalNode.cs" />
+    <Compile Include="DomainModel\RemoteNode.cs" />
+    <Compile Include="Extensions\ProcessExtensions.cs" />
+    <Compile Include="Win32\Native.cs" />
+    <Compile Include="DistributedDesktopWindowManager.cs" />
+    <Compile Include="Win32\RECT.cs" />
     <Page Include="Controls\ClusterConfigurationControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MasterSlaveToggleButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\Windows\VirtualApplicationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -66,6 +80,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DomainModel\Cluster.cs" />
     <Compile Include="Controls\ClusterConfigurationControl.xaml.cs">
       <DependentUpon>ClusterConfigurationControl.xaml</DependentUpon>
     </Compile>
@@ -73,6 +88,7 @@
     <Compile Include="DomainModel\AudioConfiguration.cs" />
     <Compile Include="DomainModel\Monitor.cs" />
     <Compile Include="DomainModel\VirtualDesktopConfiguration.cs" />
+    <Compile Include="DomainModel\INode.cs" />
     <Compile Include="MainWindowConfiguration.cs" />
     <Compile Include="DomainModel\ClusterConfiguration.cs" />
     <Compile Include="DomainModel\SlaveConfiguration.cs" />

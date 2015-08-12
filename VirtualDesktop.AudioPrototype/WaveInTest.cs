@@ -1,7 +1,7 @@
 ﻿using System;
 using NAudio.Wave;
 
-namespace VirtualDesktop
+namespace DistributedDesktop.AudioPrototype
 {
 	public sealed class WaveInTest
 		: IWaveIn

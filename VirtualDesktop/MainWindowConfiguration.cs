@@ -1,7 +1,7 @@
 ﻿using System.Windows;
-using VirtualDesktop.DomainModel;
+using DistributedDesktop.DomainModel;
 
-namespace VirtualDesktop
+namespace DistributedDesktop
 {
 	public static class MainWindowConfiguration
 	{

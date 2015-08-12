@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Runtime.Serialization;
 
-namespace VirtualDesktop.DomainModel
+namespace DistributedDesktop.DomainModel
 {
 	/// <summary>
 	/// The configuration for a cluster of computers.

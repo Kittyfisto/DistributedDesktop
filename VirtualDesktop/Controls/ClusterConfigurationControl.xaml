@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="VirtualDesktop.Controls.ClusterConfigurationControl"
+﻿<UserControl x:Class="DistributedDesktop.Controls.ClusterConfigurationControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -18,9 +18,9 @@
                 <RowDefinition Height="Auto" />
             </Grid.RowDefinitions>
 
-            <TextBlock Text="Slaves" Margin="0,0,0,6" />
+            <TextBlock Text="Computers" Margin="0,0,0,6" />
 
-            <ListView x:Name="Slaves" Grid.Row="1">
+            <ListView x:Name="Nodes" Grid.Row="1">
 
             </ListView>
 

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace VirtualDesktop.DomainModel
+namespace DistributedDesktop.DomainModel
 {
 	/// <summary>
 	/// The audio configuration of a cluster (basically wheter, and if, to which computer audio is streamed to).

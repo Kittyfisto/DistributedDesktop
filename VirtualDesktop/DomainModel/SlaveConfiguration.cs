@@ -1,4 +1,4 @@
-﻿namespace VirtualDesktop.DomainModel
+﻿namespace DistributedDesktop.DomainModel
 {
 	public sealed class SlaveConfiguration
 	{

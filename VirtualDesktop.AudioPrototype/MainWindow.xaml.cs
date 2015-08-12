@@ -7,7 +7,7 @@ using System.Windows.Threading;
 using NAudio.CoreAudioApi;
 using NAudio.Wave;
 
-namespace VirtualDesktop
+namespace DistributedDesktop.AudioPrototype
 {
 	public partial class MainWindow
 	{
