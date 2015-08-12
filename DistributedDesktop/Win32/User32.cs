@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DistributedDesktop.Win32
 {
-	internal static class Native
+	internal static class User32
 	{
 		#region External methods
 
@@ -17,6 +17,12 @@ namespace DistributedDesktop.Win32
 		[DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
 		static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
+		[DllImport("user32.dll")]
+		public static extern IntPtr GetDC(IntPtr hWnd);
+
+		[DllImport("user32.dll")]
+		public static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
+
 		#endregion
 
 		public static bool TryGetWindowRect(IntPtr hWnd, out RECT rect)
@@ -26,9 +32,15 @@ namespace DistributedDesktop.Win32
 
 		public static string GetWindowText(IntPtr hWnd)
 		{
+			var builder = new StringBuilder();
+			return GetWindowText(hWnd, builder);
+		}
+
+		public static string GetWindowText(IntPtr hWnd, StringBuilder builder)
+		{
 			// Allocate correct string length first
 			int length = GetWindowTextLength(hWnd);
-			var builder = new StringBuilder(length + 1);
+			builder.Capacity = Math.Max(builder.Capacity, length + 1);
 			GetWindowText(hWnd, builder, builder.Capacity);
 			return builder.ToString();
 		}

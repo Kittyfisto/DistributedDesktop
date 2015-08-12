@@ -2,6 +2,6 @@
 {
 	public interface IVirtualWindow
 	{
-		void Refresh();
+		void RefreshWindow();
 	}
 }

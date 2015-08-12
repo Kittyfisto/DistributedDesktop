@@ -1,2 +1,2 @@
-# VirtualDesktop
-Allows multiple computers to span a single virtual desktop
+# DistributedDesktop
+Allows multiple computers to create one virtual desktop.

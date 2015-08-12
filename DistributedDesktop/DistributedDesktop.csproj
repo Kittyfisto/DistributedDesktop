@@ -35,7 +35,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml">
@@ -51,13 +53,19 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Controls\Windows\IVirtualWindow.cs" />
-    <Compile Include="Controls\Windows\VirtualApplicationWindow.xaml.cs">
-      <DependentUpon>VirtualApplicationWindow.xaml</DependentUpon>
+    <Compile Include="Controls\Windows\VirtualWindow.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="DomainModel\LocalNode.cs" />
     <Compile Include="DomainModel\RemoteNode.cs" />
     <Compile Include="Extensions\ProcessExtensions.cs" />
-    <Compile Include="Win32\Native.cs" />
+    <Compile Include="Win32\BitmapCompressionMode.cs" />
+    <Compile Include="Win32\BITMAPINFO.cs" />
+    <Compile Include="Win32\BITMAPINFOHEADER.cs" />
+    <Compile Include="Win32\DIB_Color_Mode.cs" />
+    <Compile Include="Win32\Gdi32.cs" />
+    <Compile Include="Win32\RGBQUAD.cs" />
+    <Compile Include="Win32\User32.cs" />
     <Compile Include="DistributedDesktopWindowManager.cs" />
     <Compile Include="Win32\RECT.cs" />
     <Page Include="Controls\ClusterConfigurationControl.xaml">
@@ -65,10 +73,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Controls\MasterSlaveToggleButton.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Controls\Windows\VirtualApplicationWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,6 +135,11 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Capturing\Audio\" />
+    <Folder Include="Capturing\Keyboard\" />
+    <Folder Include="Capturing\Mouse\" />
+    <Folder Include="Capturing\Touch\" />
+    <Folder Include="Capturing\Video\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
